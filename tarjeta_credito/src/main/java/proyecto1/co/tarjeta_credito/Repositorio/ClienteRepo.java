@@ -6,9 +6,10 @@ import org.springframework.stereotype.Repository;
 import proyecto1.co.tarjeta_credito.Entidad.Cliente;
 
 import java.util.List;
+import java.util.Optional;
 
-@Repository
 public interface ClienteRepo extends CrudRepository<Cliente, Integer> {
     List<Cliente> findByCorreo(String correo);
-    // Métodos adicionales según sea necesario
+    Optional<Cliente> findByCorreoAndContrasena(String correo, String contrasena);
 }
+

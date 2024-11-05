@@ -8,6 +8,7 @@ import proyecto1.co.tarjeta_credito.Repositorio.ClienteRepo;
 import proyecto1.co.tarjeta_credito.Servicios.ClienteServicios;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClientesIMPL implements ClienteServicios {
@@ -17,13 +18,8 @@ public class ClientesIMPL implements ClienteServicios {
 
     @Override
     public Cliente validarCliente(String nombreCorreo, String contrasena) {
-        List<Cliente> clientes = clienteRepo.findByCorreo(nombreCorreo);
-        for (Cliente cliente : clientes) {
-            if (cliente.getContrasena().equals(contrasena)) {
-                return cliente; // Usuario validado
-            }
-        }
-        return null; // Usuario no encontrado
+        Optional<Cliente> clienteOpt = clienteRepo.findByCorreoAndContrasena(nombreCorreo, contrasena);
+        return clienteOpt.orElse(null); // Si no encuentra al cliente, retorna null
     }
 
     @Override
@@ -31,4 +27,15 @@ public class ClientesIMPL implements ClienteServicios {
         // Lógica para registrar un nuevo cliente
         return clienteRepo.save(cliente);
     }
+    @Override
+    public boolean validarEstadoCliente(Cliente cliente) {
+        // Verifica si el cliente tiene un estado válido
+        if (cliente == null || cliente.getContrasena() == null || cliente.getNombre() == null || cliente.getCorreo() == null) {
+            return false;  // Si alguno de los atributos es nulo, el estado es inválido
+        }
+        // Si el cliente está bloqueado, retornamos false (esta es solo una condición de ejemplo)
+        return true;
+    }
+
+
 }
