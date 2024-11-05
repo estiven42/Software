@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión - Banco Dando Virtual</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        main {
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            max-width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .register-link {
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .register-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                padding: 20px;
+                width: 100%;
+                margin: 0 20px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            button {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+
+            input[type="text"], input[type="password"] {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Bienvenido a Su Banco Virtual
+</header>
+
+<main>
+    <div class="login-container">
+        <h2>Inicio de Sesión</h2>
+        <form action="/Login" method="POST">
+            <input type="text" placeholder="Nombre de usuario o correo electrónico" name="nombreCorreo" required>
+            <input type="password" placeholder="Contraseña" name="contrasena" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+
+        <div class="error-message">
+            <span th:if="${error}" th:text="${error}"></span>
+        </div>
+
+        <div class="register-link">
+            ¿No tienes una cuenta? <a href="/registro">Regístrate aquí</a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    © 2024 [Banco Dando]. Todos los derechos reservados.
+</footer>
+
+</body>
+</html>
