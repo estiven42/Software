@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Cliente - Banco Dando Virtual</title>
+  <style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    header {
+        background-color: #007bff;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    main {
+        padding: 40px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+    }
+
+    .register-container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        color: #333;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        margin: 15px 0;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .login-link {
+        margin-top: 15px;
+        font-size: 0.9rem;
+    }
+
+    .login-link a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .login-link a:hover {
+        text-decoration: underline;
+    }
+
+    footer {
+        background-color: #343a40;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        .register-container {
+            padding: 20px;
+            width: 100%;
+            margin: 0 20px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 0.9rem;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            padding: 10px;
+            font-size: 0.9rem;
+        }
+    }
+  </style>
+  <script>
+    function mostrarRegistroExitoso(event) {
+        event.preventDefault(); // Previene el envío del formulario al servidor
+        alert("Registro exitoso. Presiona 'Aceptar' para continuar.");
+        window.location.href = "http://localhost:63342/Software/tarjeta/templates/Inicio.html"; // Redirige a la página de inicio de sesión
+    }
+  </script>
+</head>
+<body>
+
+<header>
+  Registro de Cliente - Banco Dando
+</header>
+
+<main>
+  <div class="register-container">
+    <h2>Registro</h2>
+    <form onsubmit="mostrarRegistroExitoso(event)">
+      <input type="text" placeholder="Nombre Completo" name="nombre" required>
+      <input type="text" placeholder="Teléfono" name="telefono" required>
+      <input type="email" placeholder="Correo Electrónico" name="correo" required>
+      <input type="password" placeholder="Contraseña" name="contrasena" required>
+      <button type="submit">Registrarse</button>
+    </form>
+
+    <div class="login-link">
+      ¿Ya tienes una cuenta? <a href="http://localhost:63342/Software/tarjeta/templates/Inicio.html">Inicia sesión aquí</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2024 Banco Dando. Todos los derechos reservados.
+</footer>
+
+</body>
+</html>
