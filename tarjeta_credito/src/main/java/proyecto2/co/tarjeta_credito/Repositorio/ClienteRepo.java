@@ -1,7 +1,6 @@
 package proyecto2.co.tarjeta_credito.Repositorio;
 
-
-import proyecto1.co.tarjeta_credito.Entidad.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
+import proyecto1.co.tarjeta_credito.Entidad.Cliente;
 
-public interface UsuarioRepository extends JpaRepository<Usuario, Long> {}
+public interface ClienteRepo extends JpaRepository<Cliente, Long> {}
